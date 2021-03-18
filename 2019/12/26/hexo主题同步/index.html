@@ -13,11 +13,11 @@
 
     <title>
         
-          Weijie的博客 | Weijie&#39;s Blog
+          hexo主题同步 - Weijie的博客 | Weijie&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://hexo.weijie.live/i_dont_wanna_use_default_archives/2021/">
+    <link rel="canonical" href="http://hexo.weijie.live/2019/12/26/hexo主题同步/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,21 +90,21 @@
 
                         
                         <li>
-                            <a href="/about/">关于我</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">归档</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">标签</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -147,7 +147,123 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://hexo.weijie.live/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+                        
+                    </div>
+                    <h1>hexo主题同步</h1>
+                    <h2 class="subheading">hexo</h2>
+                    <span class="meta">
+                        Posted by weijie on
+                        2019-12-26
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="绑定子项目"><a href="#绑定子项目" class="headerlink" title="绑定子项目"></a>绑定子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git remote add -f next git@github.com:theme-next&#x2F;hexo-theme-next</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree add --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure>
+<h2 id="更新子项目"><a href="#更新子项目" class="headerlink" title="更新子项目"></a>更新子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch next master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree pull --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure>
+
+<h2 id="从子目录push到远程仓库"><a href="#从子目录push到远程仓库" class="headerlink" title="从子目录push到远程仓库"></a>从子目录push到远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git subtree push --prefix&#x3D;themes&#x2F;next next master</span></pre></td></tr></table></figure>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/09/21/Xcode-CLT/" data-toggle="tooltip" data-placement="top" title="Xcode-CLT">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://weijie.live" target="_blank">weijie&#39;s live</a></li>
+                    
+                        <li><a href="https://demo.weijie.live" target="_blank">demo</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
 
     <!-- Footer -->
     <!-- Footer -->

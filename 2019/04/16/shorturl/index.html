@@ -13,11 +13,11 @@
 
     <title>
         
-          hexo主题同步 - Weijie的博客 | Weijie&#39;s Blog
+          短连接生成 - Weijie的博客 | Weijie&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://hexo.weijie.live/2021/03/18/2019-12-26-hexo主题同步/">
+    <link rel="canonical" href="http://hexo.weijie.live/2019/04/16/shorturl/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,21 +90,21 @@
 
                         
                         <li>
-                            <a href="/about/">关于我</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">归档</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">标签</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -165,14 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#分享" title="分享">分享</a>
+                          <a class="tag" href="/tags/#工具" title="工具">工具</a>
                         
                     </div>
-                    <h1>hexo主题同步</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>短连接生成</h1>
+                    <h2 class="subheading"> &#34;quickly create a short link&#34;</h2>
                     <span class="meta">
-                        Posted by Weijie on
-                        2021-03-18
+                        Posted by weijie on
+                        2019-04-16
                     </span>
                 </div>
             </div>
@@ -191,10 +191,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="绑定子项目"><a href="#绑定子项目" class="headerlink" title="绑定子项目"></a>绑定子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git remote add -f next git@github.com:theme-next&#x2F;hexo-theme-next</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree add --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure>
-<h2 id="更新子项目"><a href="#更新子项目" class="headerlink" title="更新子项目"></a>更新子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch next master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree pull --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure>
+                <h1 id="t-cn-xxx"><a href="#t-cn-xxx" class="headerlink" title="t.cn/xxx"></a>t.cn/xxx</h1><p>越来越多的短链接受到欢迎，今天分享一下t.cn</p>
+<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>t.cn属于新浪微博的一个短链接平台，同类的还有很多，比如百度dwz.cn等等，相对来说新浪的还是比较稳定。</p>
+<h3 id="新旧版api"><a href="#新旧版api" class="headerlink" title="新旧版api"></a>新旧版api</h3><p><a href="https://api.weibo.com/2/short_url/shorten.json" target="_blank" rel="noopener">https://api.weibo.com/2/short_url/shorten.json</a> <br/><br><a href="http://api.t.sina.com.cn/short_url/shorten.json" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.json</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give examples</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">xml:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">json:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json</span></pre></td></tr></table></figure>
 
-<h2 id="从子目录push到远程仓库"><a href="#从子目录push到远程仓库" class="headerlink" title="从子目录push到远程仓库"></a>从子目录push到远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git subtree push --prefix&#x3D;themes&#x2F;next next master</span></pre></td></tr></table></figure>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>apkey：3271760578（需要自己申请）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give the example</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json?source&#x3D;3271760578&amp;url_long&#x3D;http:&#x2F;&#x2F;blog.cellmean.com</span></pre></td></tr></table></figure>
+
+<p>更多请参考：<a href="https://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">https://open.weibo.com/wiki/Short_url/shorten</a></p>
 
 
                 <hr>
@@ -204,12 +209,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2021/03/18/2019-04-16-shorturl/" data-toggle="tooltip" data-placement="top" title="Short Url">&larr; Previous Post</a>
+                            <a href="/2019/09/21/Xcode-CLT/" data-toggle="tooltip" data-placement="top" title="Xcode-CLT">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2021/03/18/Xcode-CLT/" data-toggle="tooltip" data-placement="top" title="Xcode-CLT">Next Post &rarr;</a>
+                            <a href="/2014/01/29/hello-world/" data-toggle="tooltip" data-placement="top" title="Welcome to My Blog">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -236,13 +241,24 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#分享" title="分享">分享</a>
+                          <a class="tag" href="/tags/#工具" title="工具">工具</a>
                         
                     </div>
                 </section>
                 
 
                 <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://weijie.live" target="_blank">weijie&#39;s live</a></li>
+                    
+                        <li><a href="https://demo.weijie.live" target="_blank">demo</a></li>
+                    
+                </ul>
                 
             </div>
 

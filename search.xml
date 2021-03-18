@@ -4,48 +4,17 @@
   
     
     <entry>
-      <title>Short Url</title>
-      <link href="/2021/03/18/2019-04-16-shorturl/"/>
-      <url>/2021/03/18/2019-04-16-shorturl/</url>
-      
-        <content type="html"><![CDATA[<h1 id="t-cn-xxx"><a href="#t-cn-xxx" class="headerlink" title="t.cn/xxx"></a>t.cn/xxx</h1><p>越来越多的短链接受到欢迎，今天分享一下t.cn</p><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>t.cn属于新浪微博的一个短链接平台，同类的还有很多，比如百度dwz.cn等等，相对来说新浪的还是比较稳定。</p><h3 id="新旧版api"><a href="#新旧版api" class="headerlink" title="新旧版api"></a>新旧版api</h3><p><a href="https://api.weibo.com/2/short_url/shorten.json" target="_blank" rel="noopener">https://api.weibo.com/2/short_url/shorten.json</a> <br/><br><a href="http://api.t.sina.com.cn/short_url/shorten.json" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.json</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give examples</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">xml:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">json:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json</span></pre></td></tr></table></figure><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>apkey：3271760578（需要自己申请）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give the example</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json?source&#x3D;3271760578&amp;url_long&#x3D;http:&#x2F;&#x2F;blog.cellmean.com</span></pre></td></tr></table></figure><p>更多请参考：<a href="https://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">https://open.weibo.com/wiki/Short_url/shorten</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> web后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 分享 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>hexo主题同步</title>
-      <link href="/2021/03/18/2019-12-26-hexo%E4%B8%BB%E9%A2%98%E5%90%8C%E6%AD%A5/"/>
-      <url>/2021/03/18/2019-12-26-hexo%E4%B8%BB%E9%A2%98%E5%90%8C%E6%AD%A5/</url>
+      <link href="/2019/12/26/hexo%E4%B8%BB%E9%A2%98%E5%90%8C%E6%AD%A5/"/>
+      <url>/2019/12/26/hexo%E4%B8%BB%E9%A2%98%E5%90%8C%E6%AD%A5/</url>
       
         <content type="html"><![CDATA[<h2 id="绑定子项目"><a href="#绑定子项目" class="headerlink" title="绑定子项目"></a>绑定子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git remote add -f next git@github.com:theme-next&#x2F;hexo-theme-next</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree add --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure><h2 id="更新子项目"><a href="#更新子项目" class="headerlink" title="更新子项目"></a>更新子项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch next master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree pull --prefix&#x3D;themes&#x2F;next next master --squash</span></pre></td></tr></table></figure><h2 id="从子目录push到远程仓库"><a href="#从子目录push到远程仓库" class="headerlink" title="从子目录push到远程仓库"></a>从子目录push到远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git subtree push --prefix&#x3D;themes&#x2F;next next master</span></pre></td></tr></table></figure>]]></content>
       
       
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
       
         <tags>
             
-            <tag> 分享 </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -55,25 +24,56 @@
     
     <entry>
       <title>Xcode-CLT</title>
-      <link href="/2021/03/18/Xcode-CLT/"/>
-      <url>/2021/03/18/Xcode-CLT/</url>
+      <link href="/2019/09/21/Xcode-CLT/"/>
+      <url>/2019/09/21/Xcode-CLT/</url>
       
         <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/2320/0*glm2SHyTdpQ-SBod" alt="image"></p><h1 id="gyp-No-Xcode-or-CLT-version"><a href="#gyp-No-Xcode-or-CLT-version" class="headerlink" title="gyp: No Xcode or CLT version"></a>gyp: No Xcode or CLT version</h1><p>Did you recently update your macOS Catalina to version 10.15.2? If you did, then you probably in the same boat too. What I immediately noticed from my terminal is this new shinny error about gyp: No Xcode or CLT version detected any time I ran either yarn install or npm install</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">gyp: No Xcode or CLT version detected!</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">gyp ERR! configure error</span></pre></td></tr></table></figure><p>Well if you are wondering if that was my entire error? It is not even close. The line goes on and on. The funny thing is am so sure I have command line tools installed. The result of xcode-select –install should start the reinstallation process but if you get the result in the image below then you already have command line tools installed<br>xcode-select: error: command line tools are already installed, use “Software Update” to install updates<br><img src="https://miro.medium.com/max/1540/0*wIhKeLDe-Jz_1DMh" alt="image"></p><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Reinstall command line tools by removing the previously installed version</p><h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>First, get the location of the installed command line tools by running the command below:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xcode-select --print-path</span></pre></td></tr></table></figure><p>the result of the above command /Library/Developer/CommandLineTools</p><h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Knowing the path to the currently installed command line tools from the previous step, You can now go ahead and remove it from the system. For the next set of commands, you need sudo privileges to run successfully.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo rm -r -f &#x2F;Library&#x2F;Developer&#x2F;CommandLineTools</span></pre></td></tr></table></figure><p>Provide the root password to remove the command line tools. If you already have git installed, you would get a prompt to guide you through the installation of command line developer tools.</p><p>Prompt to reinstall command line developer tools<br>Click on install and follow the rest of the instructions in prompt to reinstall command line developer tools. If for some reasons, you do not get the prompt right after uninstalling your previous command line developer tools, no need to panic. Run the following command to get the prompt.<br><img src="https://miro.medium.com/max/1540/0*s8rdlR3j3xVHcl95" alt="image"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xcode-select --install</span></pre></td></tr></table></figure><p>Prompt after running xcode-select -install<br>Click on install and then agree to the licence to proceed with the installation. Depending on your internet speed it will take some time for the system to complete the download of the command line developer tools. The installation process should proceed immediately after a successful download. Look out for the done button as shown in the image below to confirm command line tools is successfully installed.<br>Done screen<br><img src="https://miro.medium.com/max/1540/0*UURlqdam5Xyrp7DD" alt="image"><br>With the reinstallation of the command line developer tools the gyp: No Xcode or CLT version detected error message should disappear when you run any yarn or npm commands from the command line.</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2021/03/18/hello-world/"/>
-      <url>/2021/03/18/hello-world/</url>
+      <title>短连接生成</title>
+      <link href="/2019/04/16/shorturl/"/>
+      <url>/2019/04/16/shorturl/</url>
+      
+        <content type="html"><![CDATA[<h1 id="t-cn-xxx"><a href="#t-cn-xxx" class="headerlink" title="t.cn/xxx"></a>t.cn/xxx</h1><p>越来越多的短链接受到欢迎，今天分享一下t.cn</p><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>t.cn属于新浪微博的一个短链接平台，同类的还有很多，比如百度dwz.cn等等，相对来说新浪的还是比较稳定。</p><h3 id="新旧版api"><a href="#新旧版api" class="headerlink" title="新旧版api"></a>新旧版api</h3><p><a href="https://api.weibo.com/2/short_url/shorten.json" target="_blank" rel="noopener">https://api.weibo.com/2/short_url/shorten.json</a> <br/><br><a href="http://api.t.sina.com.cn/short_url/shorten.json" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.json</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give examples</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">xml:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">json:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json</span></pre></td></tr></table></figure><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>apkey：3271760578（需要自己申请）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give the example</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json?source&#x3D;3271760578&amp;url_long&#x3D;http:&#x2F;&#x2F;blog.cellmean.com</span></pre></td></tr></table></figure><p>更多请参考：<a href="https://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">https://open.weibo.com/wiki/Short_url/shorten</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Welcome to My Blog</title>
+      <link href="/2014/01/29/hello-world/"/>
+      <url>/2014/01/29/hello-world/</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> demo </tag>
+            
+        </tags>
       
     </entry>
     
