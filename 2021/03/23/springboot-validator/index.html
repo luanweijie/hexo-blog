@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Be what you wanna be!">
-    <meta name="keyword"  content="">
+    <meta name="keyword"  content="weijie|blog|java|developer">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -16,7 +16,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://hexo.weijie.live/2021/03/24/springboot validator优雅的校验参数/">
+    <link rel="canonical" href="http://hexo.weijie.live/2021/03/23/springboot-validator/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/home-bg.jpg')
+        background-image: url('00-earth-splash-1x-ltr.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -174,7 +174,7 @@
                     <h2 class="subheading">springboot validator</h2>
                     <span class="meta">
                         Posted by weijie on
-                        2021-03-24
+                        2021-03-23
                     </span>
                 </div>
             </div>
@@ -198,12 +198,12 @@
 <blockquote>
 <p>如果已经引用了spring-boot-starter-web,就不要需要引用spring-boot-starter-validation了,本例就不再引用</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  &lt;groupId&gt;org.hibernate.validator&lt;&#x2F;groupId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  &lt;artifactId&gt;hibernate-validator&lt;&#x2F;artifactId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;dependency&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  &lt;groupId&gt;javax.validation&lt;&#x2F;groupId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  &lt;artifactId&gt;validation-api&lt;&#x2F;artifactId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;dependency&gt;</span></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate.validator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <blockquote>
 <p>但是我们在集成的时候发现没有对应的包，springboot版本在2.3，这就需要我们收到添加aop的支持</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入validation支持 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &lt;artifactId&gt;spring-boot-starter-validation&lt;&#x2F;artifactId&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;dependency&gt;</span></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引入validation支持 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <h2 id="注解介绍"><a href="#注解介绍" class="headerlink" title="注解介绍"></a>注解介绍</h2><h3 id="validator内置注解"><a href="#validator内置注解" class="headerlink" title="validator内置注解"></a>validator内置注解</h3><table>
 <thead>
@@ -304,7 +304,7 @@
 </ul>
 <h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>对于简单的参数检验，可以直接在方法或类上加上@Valid并配合validator注解使用，复杂对象的检验则注解在对象属性上加validator注解即可，需要注意的是对象嵌套可能会导致注解失效，需要要嵌套的对象上加上@Valid注解</p>
 <h2 id="自定义异常处理"><a href="#自定义异常处理" class="headerlink" title="自定义异常处理"></a>自定义异常处理</h2><p>创建一个<code>GlobalExceptionHandler</code>类，在类上方添加<code>@RestControllerAdvice</code>注解然后添加以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">* 单个参数验证</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">@ExceptionHandler(ValidationException.class)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">public Response handleMethodArgumentNotValidException(ValidationException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    log.error(e.getMessage(), e);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    return new Response(ExceptionMsg.ParamError.getCode(), e.getMessage());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#x2F;**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">* 对象验证</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">@ExceptionHandler(MethodArgumentNotValidException.class)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">public Response handleMethodArgumentNotValidException(MethodArgumentNotValidException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    log.error(e.getMessage(), e);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    return new Response(ExceptionMsg.ParamError.getCode(),e.getBindingResult().getFieldError().getDefaultMessage());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">* 单个参数验证</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">@<span class="constructor">ExceptionHandler(ValidationException.<span class="params">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">public Response handle<span class="constructor">MethodArgumentNotValidException(ValidationException <span class="params">e</span>)</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    log.error(e.get<span class="constructor">Message()</span>, e);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    return <span class="keyword">new</span> <span class="constructor">Response(ExceptionMsg.ParamError.<span class="params">getCode</span>()</span>, e.get<span class="constructor">Message()</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">* 对象验证</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">@<span class="constructor">ExceptionHandler(MethodArgumentNotValidException.<span class="params">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">public Response handle<span class="constructor">MethodArgumentNotValidException(MethodArgumentNotValidException <span class="params">e</span>)</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    log.error(e.get<span class="constructor">Message()</span>, e);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    return <span class="keyword">new</span> <span class="constructor">Response(ExceptionMsg.ParamError.<span class="params">getCode</span>()</span>,e.get<span class="constructor">BindingResult()</span>.get<span class="constructor">FieldError()</span>.get<span class="constructor">DefaultMessage()</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.51cto.com/1197822/2467086" target="_blank" rel="noopener">SpringBoot入门二十二,使用Validation进行参数校验</a><br><a href="https://lqcoder.com/p/4cd8a59d.html" target="_blank" rel="noopener">SpringBoot如何优雅的校验参数</a></p>
 
@@ -398,8 +398,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "hexo-weijie-live";
-    var disqus_identifier = "http://hexo.weijie.live/2021/03/24/springboot%20validator%E4%BC%98%E9%9B%85%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8F%82%E6%95%B0/";
-    var disqus_url = "http://hexo.weijie.live/2021/03/24/springboot%20validator%E4%BC%98%E9%9B%85%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8F%82%E6%95%B0/";
+    var disqus_identifier = "http://hexo.weijie.live/2021/03/23/springboot-validator/";
+    var disqus_url = "http://hexo.weijie.live/2021/03/23/springboot-validator/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -411,6 +411,40 @@
 
 
 
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+        //   visible: 'always',
+          placement: 'right',
+        //   icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
 
 

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Be what you wanna be!">
-    <meta name="keyword"  content="">
+    <meta name="keyword"  content="weijie|blog|java|developer">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -194,10 +194,10 @@
                 <h1 id="t-cn-xxx"><a href="#t-cn-xxx" class="headerlink" title="t.cn/xxx"></a>t.cn/xxx</h1><p>越来越多的短链接受到欢迎，今天分享一下t.cn</p>
 <h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>t.cn属于新浪微博的一个短链接平台，同类的还有很多，比如百度dwz.cn等等，相对来说新浪的还是比较稳定。</p>
 <h3 id="新旧版api"><a href="#新旧版api" class="headerlink" title="新旧版api"></a>新旧版api</h3><p><a href="https://api.weibo.com/2/short_url/shorten.json" target="_blank" rel="noopener">https://api.weibo.com/2/short_url/shorten.json</a> <br/><br><a href="http://api.t.sina.com.cn/short_url/shorten.json" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.json</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give examples</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">xml:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">json:http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json</span></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give examples</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">xml:</span><span class="string">http:</span><span class="comment">//api.t.sina.com.cn/short_url/shorten.xml</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">json:</span><span class="string">http:</span><span class="comment">//api.t.sina.com.cn/short_url/shorten.json</span></span></pre></td></tr></table></figure>
 
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>apkey：3271760578（需要自己申请）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give the example</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;api.t.sina.com.cn&#x2F;short_url&#x2F;shorten.json?source&#x3D;3271760578&amp;url_long&#x3D;http:&#x2F;&#x2F;blog.cellmean.com</span></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Give the example</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http://api.t.sina.<span class="keyword">com</span>.<span class="keyword">cn</span>/short_url/shorten.json?<span class="keyword">source</span>=<span class="number">3271760578</span>&amp;url_long=http://blog.cellmean.<span class="keyword">com</span></span></pre></td></tr></table></figure>
 
 <p>更多请参考：<a href="https://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">https://open.weibo.com/wiki/Short_url/shorten</a></p>
 
@@ -306,6 +306,40 @@
 
 
 
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+        //   visible: 'always',
+          placement: 'right',
+        //   icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
 
 
