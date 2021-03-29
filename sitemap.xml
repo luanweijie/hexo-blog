@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>https://hexo.weijie.live/2021/03/23/springboot-validator/</loc>
+    <loc>https://hexo.weijie.live/2021/03/28/awesome/</loc>
     
     <lastmod>2021-03-29</lastmod>
     
@@ -71,6 +71,13 @@
     
   </url>
   
+  <url>
+    <loc>https://hexo.weijie.live/2021/03/23/springboot-validator/</loc>
+    
+    <lastmod>2021-03-29</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>https://hexo.weijie.live/</loc>
@@ -82,6 +89,13 @@
   
   <url>
     <loc>https://hexo.weijie.live/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-03-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hexo.weijie.live/tags/awesome/</loc>
     <lastmod>2021-03-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
