@@ -19,13 +19,19 @@
     <link rel="canonical" href="https://hexo.weijie.live/2019/09/21/Xcode-CLT/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
 
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -49,7 +55,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Weijie's Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Weijie's Blog" type="application/atom+xml">
 </head>
 
 
@@ -193,20 +199,20 @@
 
                 <p><img src="https://miro.medium.com/max/2320/0*glm2SHyTdpQ-SBod" alt="image"></p>
 <h1 id="gyp-No-Xcode-or-CLT-version"><a href="#gyp-No-Xcode-or-CLT-version" class="headerlink" title="gyp: No Xcode or CLT version"></a>gyp: No Xcode or CLT version</h1><p>Did you recently update your macOS Catalina to version 10.15.2? If you did, then you probably in the same boat too. What I immediately noticed from my terminal is this new shinny error about gyp: No Xcode or CLT version detected any time I ran either yarn install or npm install</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">gyp: <span class="keyword">No</span> Xcode or CLT <span class="keyword">version</span> detected!</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">gyp <span class="keyword">ERR</span>! configure <span class="keyword">error</span></span></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gyp: <span class="keyword">No</span> Xcode or CLT <span class="keyword">version</span> detected!</span><br><span class="line">gyp <span class="keyword">ERR</span>! configure <span class="keyword">error</span></span><br></pre></td></tr></table></figure>
 
 <p>Well if you are wondering if that was my entire error? It is not even close. The line goes on and on. The funny thing is am so sure I have command line tools installed. The result of xcode-select –install should start the reinstallation process but if you get the result in the image below then you already have command line tools installed<br>xcode-select: error: command line tools are already installed, use “Software Update” to install updates<br><img src="https://miro.medium.com/max/1540/0*wIhKeLDe-Jz_1DMh" alt="image"></p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Reinstall command line tools by removing the previously installed version</p>
 <h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>First, get the location of the installed command line tools by running the command below:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--print-path</span></span></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--print-path</span></span><br></pre></td></tr></table></figure>
 
 <p>the result of the above command /Library/Developer/CommandLineTools</p>
 <h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Knowing the path to the currently installed command line tools from the previous step, You can now go ahead and remove it from the system. For the next set of commands, you need sudo privileges to run successfully.</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo rm -r -f <span class="regexp">/Library/</span>Developer<span class="regexp">/CommandLineTools</span></span></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r -f <span class="regexp">/Library/</span>Developer<span class="regexp">/CommandLineTools</span></span><br></pre></td></tr></table></figure>
 
 <p>Provide the root password to remove the command line tools. If you already have git installed, you would get a prompt to guide you through the installation of command line developer tools.</p>
 <p>Prompt to reinstall command line developer tools<br>Click on install and follow the rest of the instructions in prompt to reinstall command line developer tools. If for some reasons, you do not get the prompt right after uninstalling your previous command line developer tools, no need to panic. Run the following command to get the prompt.<br><img src="https://miro.medium.com/max/1540/0*s8rdlR3j3xVHcl95" alt="image"></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--install</span></span></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--install</span></span><br></pre></td></tr></table></figure>
 
 <p>Prompt after running xcode-select -install<br>Click on install and then agree to the licence to proceed with the installation. Depending on your internet speed it will take some time for the system to complete the download of the command line developer tools. The installation process should proceed immediately after a successful download. Look out for the done button as shown in the image below to confirm command line tools is successfully installed.<br>Done screen<br><img src="https://miro.medium.com/max/1540/0*UURlqdam5Xyrp7DD" alt="image"><br>With the reinstallation of the command line developer tools the gyp: No Xcode or CLT version detected error message should disappear when you run any yarn or npm commands from the command line.</p>
 
@@ -409,13 +415,19 @@
 </footer>
 
 <!-- jQuery -->
+
 <script src="/js/jquery.min.js"></script>
 
+
 <!-- Bootstrap Core JavaScript -->
+
 <script src="/js/bootstrap.min.js"></script>
 
+
 <!-- Custom Theme JavaScript -->
+
 <script src="/js/hux-blog.min.js"></script>
+
 
 
 <!-- async load function -->

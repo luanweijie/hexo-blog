@@ -19,13 +19,19 @@
     <link rel="canonical" href="https://hexo.weijie.live/2019/12/26/hexo主题同步/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
 
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -49,7 +55,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Weijie's Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Weijie's Blog" type="application/atom+xml">
 </head>
 
 
@@ -191,10 +197,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="绑定子项目"><a href="#绑定子项目" class="headerlink" title="绑定子项目"></a>绑定子项目</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> -<span class="keyword">f</span> <span class="keyword">next</span> git@github.<span class="keyword">com</span>:theme-<span class="keyword">next</span>/hexo-theme-<span class="keyword">next</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree <span class="built_in">add</span> --prefix=themes/<span class="keyword">next</span> <span class="keyword">next</span> master --squash</span></pre></td></tr></table></figure>
-<h2 id="更新子项目"><a href="#更新子项目" class="headerlink" title="更新子项目"></a>更新子项目</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch next <span class="literal">master</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git subtree pull --<span class="attr">prefix=</span>themes/next next <span class="keyword">master</span> <span class="title">--squash</span></span></pre></td></tr></table></figure>
+                <h2 id="绑定子项目"><a href="#绑定子项目" class="headerlink" title="绑定子项目"></a>绑定子项目</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> -<span class="keyword">f</span> <span class="keyword">next</span> git@github.<span class="keyword">com</span>:theme-<span class="keyword">next</span>/hexo-theme-<span class="keyword">next</span></span><br><span class="line">git subtree <span class="built_in">add</span> --prefix=themes/<span class="keyword">next</span> <span class="keyword">next</span> master --squash</span><br></pre></td></tr></table></figure>
+<h2 id="更新子项目"><a href="#更新子项目" class="headerlink" title="更新子项目"></a>更新子项目</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch next <span class="literal">master</span></span><br><span class="line">git subtree pull --<span class="attr">prefix=</span>themes/next next <span class="keyword">master</span> <span class="title">--squash</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="从子目录push到远程仓库"><a href="#从子目录push到远程仓库" class="headerlink" title="从子目录push到远程仓库"></a>从子目录push到远程仓库</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git subtree <span class="keyword">push</span> --prefix=themes/<span class="keyword">next</span> <span class="keyword">next</span> master</span></pre></td></tr></table></figure>
+<h2 id="从子目录push到远程仓库"><a href="#从子目录push到远程仓库" class="headerlink" title="从子目录push到远程仓库"></a>从子目录push到远程仓库</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git subtree <span class="keyword">push</span> --prefix=themes/<span class="keyword">next</span> <span class="keyword">next</span> master</span><br></pre></td></tr></table></figure>
 
 
                 <hr>
@@ -395,13 +401,19 @@
 </footer>
 
 <!-- jQuery -->
+
 <script src="/js/jquery.min.js"></script>
 
+
 <!-- Bootstrap Core JavaScript -->
+
 <script src="/js/bootstrap.min.js"></script>
 
+
 <!-- Custom Theme JavaScript -->
+
 <script src="/js/hux-blog.min.js"></script>
+
 
 
 <!-- async load function -->
