@@ -236,12 +236,6 @@
                 </ul>
 
                 
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                
                 <div id="gitalk-container"></div>
 
             </div>
@@ -302,7 +296,7 @@
 </article>
 <script>
     var gitalk = new Gitalk({
-        id: location.pathname,
+        id: decodeURI(location.pathname),
         clientID: '80dac5675f164dccc899',
         clientSecret: '511d687a42267f465ff49b3e3dcbdb9a2dc1c88d',
         repo: 'hexo-blog',
@@ -313,21 +307,6 @@
     })
     gitalk.render('gitalk-container')
 </script>
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "hexo-weijieblog";
-    var disqus_identifier = "https://hexo.weijie.live/2019/09/21/Xcode-CLT/";
-    var disqus_url = "https://hexo.weijie.live/2019/09/21/Xcode-CLT/";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
 
 
 
