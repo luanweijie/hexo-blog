@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keyword"  content="weijie、blog、java、developer">
-    <meta name="description" content="health-checking">
+    <meta name="description" content="浅谈SPI">
     
-      <title>health-checking - Weijie的博客 | Weijie&#39;s Blog</title>
+      <title>浅谈SPI - Weijie的博客 | Weijie&#39;s Blog</title>
     
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="canonical" href="https://hexo.weijie.live/2021/04/06/health-checking/">
+    <link rel="canonical" href="https://hexo.weijie.live/2021/04/07/浅谈SPI/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -160,7 +160,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('grpc.jpg')
+        background-image: url('JxoDiHGdOK5q7Nj.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -173,11 +173,11 @@
                           <a class="tag" href="/tags/#grpc" title="grpc">grpc</a>
                         
                     </div>
-                    <h1>health-checking</h1>
-                    <h2 class="subheading">GRPC 健康检查协议</h2>
+                    <h1>浅谈SPI</h1>
+                    <h2 class="subheading">在java中使用SPI创建可扩展的应用程序</h2>
                     <span class="meta">
                         Posted by weijie on
-                        2021-04-06
+                        2021-04-07
                     </span>
                 </div>
             </div>
@@ -196,29 +196,53 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>健康检查用于调查服务器是否能够处理 rpcs。客户端对服务器的健康检查可以从点到点或通过某些控制系统进行。服务器可能会选择回复”不健康”，因为它尚未准备好接收请求、正在关闭或其他原因。如果在一段时间内未收到响应，或者回复中显示不健康，客户端可以采取相应行动。</p>
-<p>GRPC 服务用作简单客户端对服务器场景和其他控制系统（如负载平衡）的健康检查机制。作为一个高水平的服务提供了一些好处。首先，因为它是GRPC服务本身，做健康检查是在同一格式的正常rpc。其次，它具有丰富的语义，如每服务健康状况。第三，作为GRPC服务，它可以重复使用所有现有的计费、配额基础设施等，因此服务器可以完全控制健康检查服务的访问。</p>
-<h2 id="服务定义"><a href="#服务定义" class="headerlink" title="服务定义"></a>服务定义</h2><p>服务器应导出以下原件中定义的服务：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">syntax</span> = <span class="string">"proto3";</span></span><br><span class="line"></span><br><span class="line"><span class="attr">package</span> <span class="string">grpc.health.v1;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">message</span> <span class="string">HealthCheckRequest &#123;</span></span><br><span class="line">  <span class="attr">string</span> <span class="string">service = 1;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">message</span> <span class="string">HealthCheckResponse &#123;</span></span><br><span class="line">  <span class="attr">enum</span> <span class="string">ServingStatus &#123;</span></span><br><span class="line">    <span class="attr">UNKNOWN</span> = <span class="string">0;</span></span><br><span class="line">    <span class="attr">SERVING</span> = <span class="string">1;</span></span><br><span class="line">    <span class="attr">NOT_SERVING</span> = <span class="string">2;</span></span><br><span class="line">    <span class="attr">SERVICE_UNKNOWN</span> = <span class="string">3;  // Used only by the Watch method.</span></span><br><span class="line">  <span class="attr">&#125;</span></span><br><span class="line">  <span class="attr">ServingStatus</span> <span class="string">status = 1;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">service</span> <span class="string">Health &#123;</span></span><br><span class="line">  <span class="attr">rpc</span> <span class="string">Check(HealthCheckRequest) returns (HealthCheckResponse);</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">rpc</span> <span class="string">Watch(HealthCheckRequest) returns (stream HealthCheckResponse);</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
+                <p>在java中使用SPI创建可扩展的应用程序</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>什么是可扩展的应用程序呢？可扩展的意思是不需要修改原始代码，就可以扩展应用程序的功能。我们将应用程序做成插件或者模块。</p>
+<p>这样可以在不修改原应用的基础上，对系统功能进行升级或者定制化。</p>
+<p>本文将会向大家介绍如何通过java中的SPI机制实现这种可扩展的应用程序。</p>
+<h1 id="SPI简介"><a href="#SPI简介" class="headerlink" title="SPI简介"></a>SPI简介</h1><p>SPI的全称是Java Service Provider Interface。是java提供的一种服务发现的机制。</p>
+<p>通过遵循相应的规则编写应用程序之后，就可以使用ServiceLoader来加载相应的服务了。</p>
+<p>SPI的实现主要分为4个部分：</p>
+<ol>
+<li>Service Provider Interface: SPI是一个interface或者是抽象类，其中定义了我们需要扩展实现的功能。</li>
+<li>Service Providers：这是SPI的具体实现，提供了具体的实现功能</li>
+<li>SPI Configuration File：SPI的配置文件，通过在配置文件我们来配置相关的SPI发现信息。</li>
+<li>ServiceLoader: ServiceLoader是用来加载和发现服务的java类，并提供了很多有用的方法。</li>
+</ol>
+<h1 id="SPI的普通java实现"><a href="#SPI的普通java实现" class="headerlink" title="SPI的普通java实现"></a>SPI的普通java实现</h1><p>讲完SPI的定义，大家可能还是不清楚SPI到底是做什么的，又该怎么使用它。</p>
+<p>不用急，我们下面通过一个例子来说明。</p>
+<p>首先创建一个module:SPI-service,里面主要定义了一个ModuleService接口：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>ModuleService &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>客户端可以通过调用该方法查询服务器的健康状况，并且应在 rpc 上设置截止日期。客户端可以可选地设置它想要查询的健康状况的服务名称。建议的服务名称格式是<code>package_names.ServiceName</code>,例如<code>grpc.health.v1.Health</code></p>
-<p>服务器应手动注册所有服务并设置单个状态，包括空服务名称及其状态。对于收到的每一个请求，如果服务名称可以在注册表中找到，则必须用状态<code>OK</code>发送回复，并且状态字段应设置为或相应地设置<code>SERVING</code> or <code>NOT_SERVING</code>。如果未注册服务名称，服务器将返回 GRPC 状态<code>NOT_FOUND</code></p>
-<p>服务器应使用空字符串作为服务器整体健康状况的关键，以便对特定服务不感兴趣的客户端可以使用空请求查询服务器的状态。服务器只需对服务名称进行精确匹配，而无需支持任何类型的通配符匹配。但是，服务所有者可以自由实施客户端和服务器都同意的更复杂的匹配语义。</p>
-<p>如果 rpc 在一段时间后未完成，则客户端可以声明服务器不健康。客户端应该能够处理服务器没有健康服务的情况。</p>
-<p>客户端可以调用该方法执行流式健康检查。服务器将立即发回指示当前服务状态的消息。然后，当服务状态发生变化时，它将发送新消息。</p>
+<p><img src="image-20210408155624652.png" alt="image-20210408155624652"></p>
+<p>然后再分别创建两个module，作为ModuleService的实现：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModuleServiceA</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">ModuleService</span></span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ModuleService getModuleService()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">ModuleServiceA</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModuleServiceB</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">ModuleService</span></span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ModuleService getModuleService()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">ModuleServiceB</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着分别在两个module中创建META-INF/services文件夹，并且在里面创建两个以 Service Provider Interface限定名为名字的文件，这里文件名是：com.flydean.base.service.ModuleService，文件里面存放的是SPI的具体实现类：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">com</span><span class="selector-class">.flydean</span><span class="selector-class">.base</span><span class="selector-class">.servicea</span><span class="selector-class">.ModuleServiceA</span></span><br><span class="line"><span class="selector-tag">com</span><span class="selector-class">.flydean</span><span class="selector-class">.base</span><span class="selector-class">.serviceb</span><span class="selector-class">.ModuleServiceB</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20210408155924598.png" alt="image-20210408155924598"></p>
+<p><img src="image-20210408160006505.png" alt="image-20210408160006505"></p>
+<p>最后，我们需要创建一个使用SPI的类：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModuleController</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;ModuleService&gt; moduleServices = ServiceLoader</span><br><span class="line">                .load(ModuleService.class).stream()</span><br><span class="line">                .<span class="built_in">map</span>(ServiceLoader.Provider::<span class="built_in">get</span>)</span><br><span class="line">                .collect(toList());</span><br><span class="line">        <span class="built_in">log</span>.info(<span class="string">"&#123;&#125;"</span>, moduleServices);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20210408160103807.png" alt="image-20210408160103807"></p>
+<p>为了更好的展示扩展应用的实际使用，我们分别创建4个模块。在实际应用中，只需要将这些jar包加入应用程序的classpath即可。</p>
+<p>运行看下输出结果：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[com<span class="selector-class">.flydean</span><span class="selector-class">.base</span><span class="selector-class">.servicea</span>.ModuleServiceA@<span class="number">16</span>f65612, </span><br><span class="line">com<span class="selector-class">.flydean</span><span class="selector-class">.base</span><span class="selector-class">.serviceb</span>.ModuleServiceB@<span class="number">311</span>d617d]</span><br></pre></td></tr></table></figure>
+
+<p>从结果看到，我们获得了两个ModuleService。证明系统扩展成功。</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>1、配置文件为什么要放在META-INF/services下面？<br>我们可以在java.util.ServiceLoader中找到以下代码。</p>
+<pre><code>private static final String PREFIX = &quot;META-INF/services/&quot;;</code></pre><p>2、ServiceLoader读取实现类是什么时候实例化的？<br>ServiceLoader.LazyIterator.nextService中实例化，即load的结果迭代时才会被实例化。</p>
 
 
                 <hr>
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2021/04/07/浅谈SPI/" data-toggle="tooltip" data-placement="top" title="浅谈SPI">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2021/03/28/awesome/" data-toggle="tooltip" data-placement="top" title="awesome">Next Post &rarr;</a>
+                            <a href="/2021/04/06/health-checking/" data-toggle="tooltip" data-placement="top" title="health-checking">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
